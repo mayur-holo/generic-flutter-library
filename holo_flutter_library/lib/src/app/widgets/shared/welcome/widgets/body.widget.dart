@@ -107,8 +107,8 @@ class _BodyState extends State<Body> {
   //   );
   // }
 
-  HLButton buildLoginSignupButton(BuildContext context) {
-    return HLButton(
+  MyButton buildLoginSignupButton(BuildContext context) {
+    return MyButton(
       text: "LOGIN / SIGNUP",
       onPressed: () {
         Navigator.push(
@@ -123,8 +123,8 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLButton buildSkipButton(BuildContext context) {
-    return HLButton(
+  MyButton buildSkipButton(BuildContext context) {
+    return MyButton(
       text: "SKIP LOGIN",
       color: Palette.hlPrimaryLightColor,
       textColor: Colors.black,

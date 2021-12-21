@@ -7,7 +7,7 @@
 
 import 'package:flutter/cupertino.dart';
 
-class HLEditingController extends TextEditingController {
+class MyEditingController extends TextEditingController {
   bool isValid = false;
   String validationErrorMessage = "";
   bool defaultValue = false;

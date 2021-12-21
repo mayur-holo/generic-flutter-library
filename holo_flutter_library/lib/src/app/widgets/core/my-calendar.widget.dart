@@ -15,18 +15,18 @@ import 'package:intl/intl.dart';
 import 'package:holo_flutter_library/src/app/utils/date.util.dart'
     as my_date_utils;
 
-class Calendar extends StatefulWidget {
+class MyCalendar extends StatefulWidget {
   final IconData? icon;
   final String? hintText;
   final String? labelText;
-  final HLEditingController? textController;
+  final MyEditingController? textController;
   final Function? onTapFunction;
   final DateTime? startDateTime;
   final DateTime? firstDateTime;
   final DateTime? lastDateTime;
   final bool? editable;
 
-  const Calendar({
+  const MyCalendar({
     Key? key,
     this.icon = Icons.calendar_today,
     this.hintText,
@@ -40,13 +40,13 @@ class Calendar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CalendarState createState() => _CalendarState();
+  _MyCalendarState createState() => _MyCalendarState();
 }
 
-class DateOfBirthCalendar extends Calendar {
+class DateOfBirthCalendar extends MyCalendar {
   final String? hintText;
   final String? labelText;
-  final HLEditingController? textController;
+  final MyEditingController? textController;
   final Function? onTapFunction;
   final bool? editable;
 
@@ -78,13 +78,13 @@ class DateOfBirthCalendar extends Calendar {
             lastDateTime: lastDateTime = defaultLastDateTime);
 
   @override
-  _CalendarState createState() => _CalendarState();
+  _MyCalendarState createState() => _MyCalendarState();
 }
 
-class _CalendarState extends State<Calendar> {
+class _MyCalendarState extends State<MyCalendar> {
   @override
   Widget build(BuildContext context) {
-    return HLTextFieldContainer(
+    return MyTextFieldContainer(
       child: Column(
         children: [
           if (widget.labelText != null)

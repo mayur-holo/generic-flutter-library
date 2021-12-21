@@ -19,7 +19,7 @@ import 'carousel.utils.dart';
 export 'carousel-controller.dart';
 export 'carousel-options.dart';
 
-class CarouselSlider extends StatefulWidget {
+class MyCarouselSlider extends StatefulWidget {
   /// [CarouselOptions] to create a [CarouselState] with
   ///
   /// This property must not be null
@@ -36,7 +36,7 @@ class CarouselSlider extends StatefulWidget {
 
   final int itemCount;
 
-  CarouselSlider(
+  MyCarouselSlider(
       {required this.items,
       required this.options,
       carouselController,
@@ -47,7 +47,7 @@ class CarouselSlider extends StatefulWidget {
         super(key: key);
 
   /// The on demand item builder constructor
-  CarouselSlider.builder(
+  MyCarouselSlider.builder(
       {required this.itemCount,
       required this.itemBuilder,
       required this.options,
@@ -58,10 +58,11 @@ class CarouselSlider extends StatefulWidget {
         super(key: key);
 
   @override
-  CarouselSliderState createState() => CarouselSliderState(_carouselController);
+  MyCarouselSliderState createState() =>
+      MyCarouselSliderState(_carouselController);
 }
 
-class CarouselSliderState extends State<CarouselSlider>
+class MyCarouselSliderState extends State<MyCarouselSlider>
     with TickerProviderStateMixin {
   final CarouselControllerImpl carouselController;
   Timer? timer;
@@ -75,14 +76,14 @@ class CarouselSliderState extends State<CarouselSlider>
   /// mode is related to why the page is being changed
   CarouselPageChangedReason mode = CarouselPageChangedReason.controller;
 
-  CarouselSliderState(this.carouselController);
+  MyCarouselSliderState(this.carouselController);
 
   void changeMode(CarouselPageChangedReason _mode) {
     mode = _mode;
   }
 
   @override
-  void didUpdateWidget(CarouselSlider oldWidget) {
+  void didUpdateWidget(MyCarouselSlider oldWidget) {
     carouselState?.options = options;
     carouselState?.itemCount = widget.itemCount;
 

@@ -7,9 +7,9 @@
 import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 
-class HLTextFieldContainer extends StatelessWidget {
+class MyTextFieldContainer extends StatelessWidget {
   final Widget? child;
-  const HLTextFieldContainer({
+  const MyTextFieldContainer({
     Key? key,
     this.child,
   }) : super(key: key);

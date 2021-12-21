@@ -32,9 +32,9 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  final HLEditingController _currentPasswordController = HLEditingController();
-  final HLEditingController _newPasswordController = HLEditingController();
-  final HLEditingController _confirmPasswordController = HLEditingController();
+  final MyEditingController _currentPasswordController = MyEditingController();
+  final MyEditingController _newPasswordController = MyEditingController();
+  final MyEditingController _confirmPasswordController = MyEditingController();
 
   LogOutApi apiCall = new LogOutApi();
 
@@ -169,33 +169,33 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLTextField buildCurrentPasswordField() {
-    return HLTextField(
-      TextFieldType.Password,
+  MyTextField buildCurrentPasswordField() {
+    return MyTextField(
+      MyTextFieldType.Password,
       inputFieldController: _currentPasswordController,
       hintText: 'Current Password',
     );
   }
 
-  HLTextField buildNewPasswordField() {
-    return HLTextField(
-      TextFieldType.Password,
+  MyTextField buildNewPasswordField() {
+    return MyTextField(
+      MyTextFieldType.Password,
       inputFieldController: _newPasswordController,
       hintText: 'New Password',
     );
   }
 
-  HLTextField buildNewConfirmPasswordField() {
-    return HLTextField(
-      TextFieldType.Password,
+  MyTextField buildNewConfirmPasswordField() {
+    return MyTextField(
+      MyTextFieldType.Password,
       inputFieldController: _confirmPasswordController,
       hintText: 'Confirm Password',
     );
   }
 
-  HLTextField buildRoundedPasswordField() {
-    return HLTextField(
-      TextFieldType.Password,
+  MyTextField buildRoundedPasswordField() {
+    return MyTextField(
+      MyTextFieldType.Password,
       inputFieldController: _newPasswordController,
       validate: false,
       textInputAction: TextInputAction.done,
@@ -207,7 +207,7 @@ class _BodyState extends State<Body> {
         ? const CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Palette.hlPrimaryColor),
           )
-        : HLButton(
+        : MyButton(
             text: "CHANGE PASSWORD",
             onPressed: () => _onFormComplete(),
           );
@@ -218,7 +218,7 @@ class _BodyState extends State<Body> {
         ? const CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Palette.hlPrimaryColor),
           )
-        : HLButton(
+        : MyButton(
             text: "LOGOUT",
             onPressed: () => onLogout(),
           );

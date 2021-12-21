@@ -13,7 +13,7 @@ import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-containe
 import 'my-editing-controller.dart';
 
 ///Others will not have any validation.
-enum TextFieldType {
+enum MyTextFieldType {
   Others,
   Email,
   Name,
@@ -29,10 +29,10 @@ enum TextFieldType {
   Roll,
 }
 
-class HLTextField extends StatefulWidget with TextFieldValidator {
-  final TextFieldType textFieldType;
+class MyTextField extends StatefulWidget with TextFieldValidator {
+  final MyTextFieldType textFieldType;
   final bool mandatory;
-  final HLEditingController? inputFieldController;
+  final MyEditingController? inputFieldController;
   final String hintText;
   final String labelText;
   final String? border;
@@ -47,7 +47,7 @@ class HLTextField extends StatefulWidget with TextFieldValidator {
   final int minLines;
   final int maxLines;
 
-  HLTextField(
+  MyTextField(
     this.textFieldType, {
     Key? key,
     this.mandatory = true,
@@ -68,10 +68,10 @@ class HLTextField extends StatefulWidget with TextFieldValidator {
   }) : super(key: key);
 
   @override
-  _HLTextFieldState createState() => _HLTextFieldState();
+  _MyTextFieldState createState() => _MyTextFieldState();
 }
 
-class _HLTextFieldState extends State<HLTextField> {
+class _MyTextFieldState extends State<MyTextField> {
   String get _text => widget.inputFieldController!.text;
   bool get _defaultValue => widget.inputFieldController!.defaultValue;
   String _textFieldErrorText = '';
@@ -167,7 +167,7 @@ class _HLTextFieldState extends State<HLTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return HLTextFieldContainer(
+    return MyTextFieldContainer(
       child: Column(
         children: [
           Padding(
@@ -185,7 +185,7 @@ class _HLTextFieldState extends State<HLTextField> {
           ),
           TextField(
             obscureText:
-                widget.textFieldType == TextFieldType.Password ? true : false,
+                widget.textFieldType == MyTextFieldType.Password ? true : false,
             onChanged: _onChanged,
             cursorColor: Palette.hlPrimaryColor,
             controller: widget.inputFieldController,
@@ -214,31 +214,31 @@ class _HLTextFieldState extends State<HLTextField> {
   IconData? icon() {
     if (widget.icon == null) {
       switch (widget.textFieldType) {
-        case TextFieldType.Others:
+        case MyTextFieldType.Others:
           return null;
-        case TextFieldType.Email:
+        case MyTextFieldType.Email:
           return Icons.email;
-        case TextFieldType.Name:
+        case MyTextFieldType.Name:
           return Icons.verified_user;
-        case TextFieldType.Description:
+        case MyTextFieldType.Description:
           return Icons.description;
-        case TextFieldType.PhoneNumber:
+        case MyTextFieldType.PhoneNumber:
           return Icons.phone;
-        case TextFieldType.StreetAddress:
+        case MyTextFieldType.StreetAddress:
           return Icons.location_city;
-        case TextFieldType.Numeric:
+        case MyTextFieldType.Numeric:
           return Icons.confirmation_number;
-        case TextFieldType.URL:
+        case MyTextFieldType.URL:
           return Icons.web;
-        case TextFieldType.Password:
+        case MyTextFieldType.Password:
           return Icons.lock;
-        case TextFieldType.EmailPhoneNumber:
+        case MyTextFieldType.EmailPhoneNumber:
           return Icons.email;
-        case TextFieldType.Calender:
+        case MyTextFieldType.Calender:
           return Icons.calendar_today;
-        case TextFieldType.Gender:
+        case MyTextFieldType.Gender:
           return Icons.transgender;
-        case TextFieldType.Roll:
+        case MyTextFieldType.Roll:
           return Icons.camera_roll;
       }
     } else {
@@ -257,33 +257,33 @@ class _HLTextFieldState extends State<HLTextField> {
   TextInputType? keyboardType() {
     if (widget.keyboardType == null) {
       switch (widget.textFieldType) {
-        case TextFieldType.Others:
+        case MyTextFieldType.Others:
           return null;
-        case TextFieldType.Email:
+        case MyTextFieldType.Email:
           return TextInputType.emailAddress;
-        case TextFieldType.Name:
+        case MyTextFieldType.Name:
           return TextInputType.name;
-        case TextFieldType.Description:
+        case MyTextFieldType.Description:
           return TextInputType.text;
-        case TextFieldType.PhoneNumber:
+        case MyTextFieldType.PhoneNumber:
           return TextInputType.phone;
-        case TextFieldType.StreetAddress:
+        case MyTextFieldType.StreetAddress:
           return TextInputType.streetAddress;
-        case TextFieldType.Numeric:
+        case MyTextFieldType.Numeric:
           return TextInputType.number;
-        case TextFieldType.URL:
+        case MyTextFieldType.URL:
           return TextInputType.url;
-        case TextFieldType.Password:
+        case MyTextFieldType.Password:
           return TextInputType.visiblePassword;
-        case TextFieldType.EmailPhoneNumber:
+        case MyTextFieldType.EmailPhoneNumber:
           return TextInputType.emailAddress;
-        case TextFieldType.Calender:
+        case MyTextFieldType.Calender:
           // TODO: Handle this case.
           break;
-        case TextFieldType.Gender:
+        case MyTextFieldType.Gender:
           // TODO: Handle this case.
           break;
-        case TextFieldType.Roll:
+        case MyTextFieldType.Roll:
           // TODO: Handle this case.
           break;
       }
@@ -296,33 +296,33 @@ class _HLTextFieldState extends State<HLTextField> {
   String? hintText() {
     if (widget.hintText.isEmpty) {
       switch (widget.textFieldType) {
-        case TextFieldType.Others:
+        case MyTextFieldType.Others:
           return null;
-        case TextFieldType.Email:
+        case MyTextFieldType.Email:
           return widget.emailValidator.getHintText(_text);
-        case TextFieldType.Name:
+        case MyTextFieldType.Name:
           return widget.nameValidator.getHintText(_text);
-        case TextFieldType.Description:
+        case MyTextFieldType.Description:
           return widget.descriptionValidator.getHintText(_text);
-        case TextFieldType.PhoneNumber:
+        case MyTextFieldType.PhoneNumber:
           return widget.phoneNumberValidator.getHintText(_text);
-        case TextFieldType.StreetAddress:
+        case MyTextFieldType.StreetAddress:
           return widget.streetAddressValidator.getHintText(_text);
-        case TextFieldType.Numeric:
+        case MyTextFieldType.Numeric:
           return widget.numericValidator.getHintText(_text);
-        case TextFieldType.URL:
+        case MyTextFieldType.URL:
           return widget.urlValidator.getHintText(_text);
-        case TextFieldType.Password:
+        case MyTextFieldType.Password:
           return widget.passwordValidator.getHintText(_text);
-        case TextFieldType.EmailPhoneNumber:
+        case MyTextFieldType.EmailPhoneNumber:
           return "Email/Phone number";
-        case TextFieldType.Calender:
+        case MyTextFieldType.Calender:
           // TODO: Handle this case.
           break;
-        case TextFieldType.Gender:
+        case MyTextFieldType.Gender:
           // TODO: Handle this case.
           break;
-        case TextFieldType.Roll:
+        case MyTextFieldType.Roll:
           // TODO: Handle this case.
           break;
       }
@@ -334,43 +334,43 @@ class _HLTextFieldState extends State<HLTextField> {
 
   _onChanged(value) {
     switch (widget.textFieldType) {
-      case TextFieldType.Others:
+      case MyTextFieldType.Others:
         _validateOthers();
         break;
-      case TextFieldType.Email:
+      case MyTextFieldType.Email:
         _validateEmail();
         break;
-      case TextFieldType.Name:
+      case MyTextFieldType.Name:
         _validateName();
         break;
-      case TextFieldType.Description:
+      case MyTextFieldType.Description:
         _validateDescription();
         break;
-      case TextFieldType.PhoneNumber:
+      case MyTextFieldType.PhoneNumber:
         _validatePhoneNumber();
         break;
-      case TextFieldType.StreetAddress:
+      case MyTextFieldType.StreetAddress:
         _validateStreetAddress();
         break;
-      case TextFieldType.Numeric:
+      case MyTextFieldType.Numeric:
         _validateNumeric();
         break;
-      case TextFieldType.URL:
+      case MyTextFieldType.URL:
         _validateURL();
         break;
-      case TextFieldType.Password:
+      case MyTextFieldType.Password:
         _validatePassword();
         break;
-      case TextFieldType.EmailPhoneNumber:
+      case MyTextFieldType.EmailPhoneNumber:
         _validateEmailPhoneNumber();
         break;
-      case TextFieldType.Calender:
+      case MyTextFieldType.Calender:
         // TODO: Handle this case.
         break;
-      case TextFieldType.Gender:
+      case MyTextFieldType.Gender:
         // TODO: Handle this case.
         break;
-      case TextFieldType.Roll:
+      case MyTextFieldType.Roll:
         // TODO: Handle this case.
         break;
     }

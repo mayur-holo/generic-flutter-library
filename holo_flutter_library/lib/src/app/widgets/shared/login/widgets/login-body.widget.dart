@@ -37,8 +37,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  final HLEditingController _emailMobileController = HLEditingController();
-  final HLEditingController _passwordController = HLEditingController();
+  final MyEditingController _emailMobileController = MyEditingController();
+  final MyEditingController _passwordController = MyEditingController();
 
   // bool _formSubmitted = false;
   bool _circularProgressIndicatorVisible = false;
@@ -268,16 +268,16 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLTextField buildEmailMobileField() {
-    return HLTextField(
-      TextFieldType.EmailPhoneNumber,
+  MyTextField buildEmailMobileField() {
+    return MyTextField(
+      MyTextFieldType.EmailPhoneNumber,
       inputFieldController: _emailMobileController,
     );
   }
 
-  HLTextField buildRoundedPasswordField() {
-    return HLTextField(
-      TextFieldType.Password,
+  MyTextField buildRoundedPasswordField() {
+    return MyTextField(
+      MyTextFieldType.Password,
       inputFieldController: _passwordController,
       validate: false,
       textInputAction: TextInputAction.done,
@@ -289,7 +289,7 @@ class _BodyState extends State<Body> {
         ? CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Palette.hlPrimaryColor),
           )
-        : HLButton(
+        : MyButton(
             text: "LOGIN",
             onPressed: () => _onFormComplete(),
           );

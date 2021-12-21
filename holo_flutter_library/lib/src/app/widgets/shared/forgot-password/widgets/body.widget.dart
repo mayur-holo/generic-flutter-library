@@ -48,9 +48,9 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLTextField buildEmailField() {
-    return HLTextField(
-      TextFieldType.Others,
+  MyTextField buildEmailField() {
+    return MyTextField(
+      MyTextFieldType.Others,
       inputFieldController: null,
       icon: Icons.person,
       labelText: "Email",
@@ -59,9 +59,9 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLTextField buildOTPField() {
-    return HLTextField(
-      TextFieldType.Others,
+  MyTextField buildOTPField() {
+    return MyTextField(
+      MyTextFieldType.Others,
       inputFieldController: null,
       icon: Icons.person,
       labelText: "OTP",
@@ -69,8 +69,8 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLButton buildConfirmWidget() {
-    return HLButton(
+  MyButton buildConfirmWidget() {
+    return MyButton(
       text: "Forgot Password",
       onPressed: () {
         setState(() {
@@ -81,8 +81,8 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLButton buildResendWidget() {
-    return HLButton(
+  MyButton buildResendWidget() {
+    return MyButton(
       text: "Resend ",
       onPressed: () {
         setState(() {
@@ -104,8 +104,8 @@ class _BodyState extends State<Body> {
   //   );
   // }
 
-  HLButton buildSubmitWidget() {
-    return HLButton(
+  MyButton buildSubmitWidget() {
+    return MyButton(
       text: "Submit",
       onPressed: () => null,
     );

@@ -4,22 +4,22 @@ import 'package:holo_flutter_library/src/app/utils/date.util.dart'
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-container.widget.dart';
 
-class TimePickerWidget extends StatefulWidget {
+class MyTimePickerWidget extends StatefulWidget {
   final String? hintText;
   final TextEditingController? textController;
   final Function()? onTapFunction;
-  const TimePickerWidget(
+  const MyTimePickerWidget(
       {Key? key, this.hintText, this.textController, this.onTapFunction})
       : super(key: key);
 
   @override
-  _TimePickerWidgetState createState() => _TimePickerWidgetState();
+  _MyTimePickerWidgetState createState() => _MyTimePickerWidgetState();
 }
 
-class _TimePickerWidgetState extends State<TimePickerWidget> {
+class _MyTimePickerWidgetState extends State<MyTimePickerWidget> {
   @override
   Widget build(BuildContext context) {
-    return HLTextFieldContainer(
+    return MyTextFieldContainer(
       child: TextFormField(
         readOnly: true,
         onTap: () {

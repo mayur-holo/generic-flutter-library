@@ -8,9 +8,9 @@
 import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 
-class HLDropdownFieldContainer extends StatelessWidget {
+class MyDropdownFieldContainer extends StatelessWidget {
   final Widget? child;
-  const HLDropdownFieldContainer({
+  const MyDropdownFieldContainer({
     Key? key,
     this.child,
   }) : super(key: key);

@@ -9,7 +9,7 @@ library multiselect_formfield;
 import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/widgets/core/my-multiselect-formfield/multiselect-dialog.dart';
 
-class MultiSelectFormField extends FormField<dynamic> {
+class MyMultiSelectFormField extends FormField<dynamic> {
   final Widget title;
   final Widget hintWidget;
   final bool required;
@@ -34,7 +34,7 @@ class MultiSelectFormField extends FormField<dynamic> {
   final Color? checkBoxActiveColor;
   final bool enabled;
 
-  MultiSelectFormField({
+  MyMultiSelectFormField({
     Key? key,
     FormFieldSetter<dynamic>? onSaved,
     FormFieldValidator<dynamic>? validator,

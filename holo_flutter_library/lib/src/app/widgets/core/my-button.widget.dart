@@ -7,12 +7,12 @@
 import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 
-class HLButton extends StatelessWidget {
+class MyButton extends StatelessWidget {
   final String? text;
   final Function()? onPressed;
   final Color? color, textColor;
   // final bool disabled;
-  const HLButton({
+  const MyButton({
     Key? key,
     this.text,
     this.onPressed,

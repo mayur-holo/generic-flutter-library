@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 
-class HlDivider extends StatelessWidget {
+class MyDivider extends StatelessWidget {
   final String deviderText;
-  const HlDivider(this.deviderText, {Key? key}) : super(key: key);
+  const MyDivider(this.deviderText, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

@@ -39,20 +39,20 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   bool _circularProgressIndicatorVisible = false;
   late List _myActivities;
-  final _nameController = HLEditingController();
-  final _emailController = HLEditingController();
-  final _mobileController = HLEditingController();
-  final _dobController = HLEditingController();
-  final _passwordController = HLEditingController();
+  final _nameController = MyEditingController();
+  final _emailController = MyEditingController();
+  final _mobileController = MyEditingController();
+  final _dobController = MyEditingController();
+  final _passwordController = MyEditingController();
   String _radioTypeInput = 'trainer';
-  String _radioTypeLocation = HLEditingController().text;
-  final _locationController = HLEditingController();
-  final _currentStudentsController = HLEditingController();
-  final _trainedStudentsController = HLEditingController();
-  final _experienceInYearController = HLEditingController();
-  final _websiteYoutubeController = HLEditingController();
-  final _aboutYourselfController = HLEditingController();
-  final _genderController = HLEditingController();
+  String _radioTypeLocation = MyEditingController().text;
+  final _locationController = MyEditingController();
+  final _currentStudentsController = MyEditingController();
+  final _trainedStudentsController = MyEditingController();
+  final _experienceInYearController = MyEditingController();
+  final _websiteYoutubeController = MyEditingController();
+  final _aboutYourselfController = MyEditingController();
+  final _genderController = MyEditingController();
   var _enableAutoPlay = false;
   late List _parentCourses;
   var _signupEnabled = false;
@@ -238,24 +238,24 @@ class _BodyState extends State<Body> {
   //   );
   // }
 
-  HLTextField buildNameField() {
-    return HLTextField(
-      TextFieldType.Name,
+  MyTextField buildNameField() {
+    return MyTextField(
+      MyTextFieldType.Name,
       inputFieldController: _nameController,
     );
   }
 
-  HLTextField buildEmailField() {
-    return HLTextField(
-      TextFieldType.Email,
+  MyTextField buildEmailField() {
+    return MyTextField(
+      MyTextFieldType.Email,
       mandatory: false,
       inputFieldController: _emailController,
     );
   }
 
-  HLTextField buildMobileNumberField() {
-    return HLTextField(
-      TextFieldType.PhoneNumber,
+  MyTextField buildMobileNumberField() {
+    return MyTextField(
+      MyTextFieldType.PhoneNumber,
       inputFieldController: _mobileController,
     );
   }
@@ -266,9 +266,9 @@ class _BodyState extends State<Body> {
     );
   }
 
-  HLTextField buildPasswordField(BuildContext context) {
-    return HLTextField(
-      TextFieldType.Password,
+  MyTextField buildPasswordField(BuildContext context) {
+    return MyTextField(
+      MyTextFieldType.Password,
       inputFieldController: _passwordController,
       textInputAction: TextInputAction.next,
     );
@@ -322,8 +322,8 @@ class _BodyState extends State<Body> {
     );
   }
 
-  CarouselSlider buildCarouselSlider(Size size) {
-    return CarouselSlider(
+  MyCarouselSlider buildCarouselSlider(Size size) {
+    return MyCarouselSlider(
       items: buildItemsInCarousel(size),
       options: CarouselOptions(
         height: 600.0,
@@ -361,7 +361,7 @@ class _BodyState extends State<Body> {
     setState(() {});
     String validation = "";
 
-    List<HLEditingController> controllers = [
+    List<MyEditingController> controllers = [
       _nameController,
       _emailController,
       _mobileController,
@@ -458,7 +458,7 @@ class _BodyState extends State<Body> {
         ? CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Palette.hlPrimaryColor),
           )
-        : HLButton(
+        : MyButton(
             text: "SIGNUP",
             onPressed: () => _onFormComplete(),
           );
@@ -540,9 +540,9 @@ class _BodyState extends State<Body> {
     }
   }
 
-  HLTextField buildAddressField() {
-    return HLTextField(
-      TextFieldType.StreetAddress,
+  MyTextField buildAddressField() {
+    return MyTextField(
+      MyTextFieldType.StreetAddress,
       inputFieldController: _locationController,
     );
   }
@@ -550,7 +550,7 @@ class _BodyState extends State<Body> {
   buildInterestedCoursesField() {
     return Container(
       padding: EdgeInsets.all(16),
-      child: MultiSelectFormField(
+      child: MyMultiSelectFormField(
         autovalidate: false,
         title: Text('Interested Courses'),
         validator: (value) {
@@ -577,8 +577,8 @@ class _BodyState extends State<Body> {
   }
 
   buildTrainedStudentsField() {
-    return HLTextField(
-      TextFieldType.Numeric,
+    return MyTextField(
+      MyTextFieldType.Numeric,
       hintText: "Trained students",
       icon: Icons.book_rounded,
       inputFieldController: _trainedStudentsController,
@@ -586,8 +586,8 @@ class _BodyState extends State<Body> {
   }
 
   buildCurrentStudentsField() {
-    return HLTextField(
-      TextFieldType.Numeric,
+    return MyTextField(
+      MyTextFieldType.Numeric,
       hintText: "Current students",
       icon: Icons.book_outlined,
       inputFieldController: _currentStudentsController,
@@ -595,8 +595,8 @@ class _BodyState extends State<Body> {
   }
 
   buildExperienceInYearField() {
-    return HLTextField(
-      TextFieldType.Numeric,
+    return MyTextField(
+      MyTextFieldType.Numeric,
       hintText: "Experience in years",
       icon: Icons.explore,
       inputFieldController: _experienceInYearController,
@@ -604,23 +604,23 @@ class _BodyState extends State<Body> {
   }
 
   buildWebsiteLinkField() {
-    return HLTextField(
-      TextFieldType.URL,
+    return MyTextField(
+      MyTextFieldType.URL,
       inputFieldController: _websiteYoutubeController,
       errorText: "",
     );
   }
 
   buildAboutYourselfField() {
-    return HLTextField(
-      TextFieldType.Description,
+    return MyTextField(
+      MyTextFieldType.Description,
       hintText: "About Yourself",
       inputFieldController: _aboutYourselfController,
     );
   }
 
   buildGenderDropdownField() {
-    return HLDropdownField(
+    return MyDropdownField(
       {'Male': 'male', 'Female': 'female', 'Others': 'others'},
       _genderController,
       hintText: 'Gender',

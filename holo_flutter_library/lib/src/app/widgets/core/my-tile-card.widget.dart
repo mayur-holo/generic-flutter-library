@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 
-class HLTileCard extends StatelessWidget {
-  const HLTileCard({
+class MyTileCard extends StatelessWidget {
+  const MyTileCard({
     Key? key,
     required this.context,
     required this.title,

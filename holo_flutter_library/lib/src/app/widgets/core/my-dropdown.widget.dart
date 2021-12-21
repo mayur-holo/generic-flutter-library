@@ -10,18 +10,18 @@ import 'package:holo_flutter_library/src/app/widgets/core/my-dropdown-field-cont
 import 'package:holo_flutter_library/src/app/widgets/core/my-editing-controller.dart';
 import 'package:flutter/material.dart';
 
-class HLDropdownField extends StatefulWidget {
+class MyDropdownField extends StatefulWidget {
   final String hintText;
   final String? labelText;
   final IconData? icon;
   final ValueChanged<String>? onChanged;
-  final HLEditingController editingController;
+  final MyEditingController editingController;
   final Map<String, dynamic> paramItems;
   final dropDownValue;
   final bool editable;
-  final HLEditingController? inputFieldController;
+  final MyEditingController? inputFieldController;
 
-  const HLDropdownField(
+  const MyDropdownField(
     this.paramItems,
     this.editingController, {
     Key? key,
@@ -35,13 +35,13 @@ class HLDropdownField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _HLDropdownFieldState();
+  State<StatefulWidget> createState() => _MyDropdownFieldState();
 }
 
-class _HLDropdownFieldState extends State<HLDropdownField> {
+class _MyDropdownFieldState extends State<MyDropdownField> {
   @override
   Widget build(BuildContext context) {
-    return HLDropdownFieldContainer(
+    return MyDropdownFieldContainer(
       child: Column(
         children: [
           if (widget.labelText != null)
