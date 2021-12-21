@@ -7,9 +7,9 @@
  * Copyright (c) 2021 Hobbies-Lobbies Pvt Ltd.
  */
 
-import 'package:holo_flutter_library/src/app/widgets/core/hl-button.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-button.widget.dart';
 
-import 'package:holo_flutter_library/src/app/widgets/core/hl-text-field.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-text-field.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

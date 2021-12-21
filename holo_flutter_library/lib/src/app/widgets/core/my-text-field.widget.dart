@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/utils/validators/validators.dart';
 
-import 'package:holo_flutter_library/src/app/widgets/core/hl-text-field-container.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-container.widget.dart';
 
-import 'hl-editing-controller.dart';
+import 'my-editing-controller.dart';
 
 ///Others will not have any validation.
 enum TextFieldType {

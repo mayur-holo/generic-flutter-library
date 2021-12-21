@@ -14,7 +14,7 @@ import 'package:package_info/package_info.dart';
 
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/constants/static.constant.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-button.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-button.widget.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/login/login.page.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/sign-up/widgets/background.widget.dart';
 import 'package:holo_flutter_library/src/config/flavor.config.dart';

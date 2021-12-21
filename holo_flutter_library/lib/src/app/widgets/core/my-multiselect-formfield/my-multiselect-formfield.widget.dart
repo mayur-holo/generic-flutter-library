@@ -7,7 +7,7 @@
 library multiselect_formfield;
 
 import 'package:flutter/material.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-multiselect-formfield/multiselect-dialog.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-multiselect-formfield/multiselect-dialog.dart';
 
 class MultiSelectFormField extends FormField<dynamic> {
   final Widget title;
@@ -35,6 +35,7 @@ class MultiSelectFormField extends FormField<dynamic> {
   final bool enabled;
 
   MultiSelectFormField({
+    Key? key,
     FormFieldSetter<dynamic>? onSaved,
     FormFieldValidator<dynamic>? validator,
     dynamic initialValue,
@@ -65,6 +66,7 @@ class MultiSelectFormField extends FormField<dynamic> {
     this.checkBoxActiveColor,
     this.checkBoxCheckColor,
   }) : super(
+          key: key,
           onSaved: onSaved,
           validator: validator,
           initialValue: initialValue,
@@ -100,10 +102,10 @@ class MultiSelectFormField extends FormField<dynamic> {
                       List initialSelected = state.value;
 
                       final List<MultiSelectDialogItem> items = [];
-                      dataSource!.forEach((item) {
+                      for (var item in dataSource!) {
                         items.add(MultiSelectDialogItem(
                             item[valueField], item[textField]));
-                      });
+                      }
 
                       List? selectedValues = await showDialog<List>(
                         context: state.context,

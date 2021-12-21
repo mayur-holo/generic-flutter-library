@@ -6,8 +6,8 @@
  */
 
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-dropdown-field-container.widget.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-editing-controller.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-dropdown-field-container.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-editing-controller.dart';
 import 'package:flutter/material.dart';
 
 class HLDropdownField extends StatefulWidget {

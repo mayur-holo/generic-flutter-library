@@ -7,8 +7,8 @@
 import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/constants/static.constant.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-editing-controller.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-text-field-container.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-editing-controller.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-container.widget.dart';
 
 import 'package:intl/intl.dart';
 

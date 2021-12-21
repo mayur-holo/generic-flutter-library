@@ -13,10 +13,10 @@ import 'dart:developer';
 
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/utils/encrypt-password.util.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-button.widget.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-editing-controller.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-text-field-link.widget.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-text-field.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-button.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-editing-controller.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-link.widget.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-text-field.widget.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/change-password/change-password.page.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/hl-dialog-box.widget.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/login/widgets/background.widget.dart';

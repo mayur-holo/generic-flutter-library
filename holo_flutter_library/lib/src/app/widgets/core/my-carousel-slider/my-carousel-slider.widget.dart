@@ -10,7 +10,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/hl-carousel-slider/carousel-state.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-carousel-slider/carousel-state.dart';
 
 import 'carousel-controller.dart';
 import 'carousel-options.dart';
