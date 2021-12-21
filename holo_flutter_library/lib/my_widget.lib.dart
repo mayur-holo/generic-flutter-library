@@ -9,7 +9,6 @@ export 'src/app/widgets/core/my-editing-controller.dart';
 export 'src/app/widgets/core/my-multiselect-formfield/my-multiselect-formfield.widget.dart';
 export 'src/app/widgets/core/my-scaffold.widget.dart';
 export 'src/app/widgets/core/my-text-field-container.widget.dart';
-export 'src/app/widgets/core/my-text-field-container.widget.dart';
 export 'src/app/widgets/core/my-text-field-link.widget.dart';
 export 'src/app/widgets/core/my-text-field.widget.dart';
 export 'src/app/widgets/core/my-tile-card.widget.dart';
