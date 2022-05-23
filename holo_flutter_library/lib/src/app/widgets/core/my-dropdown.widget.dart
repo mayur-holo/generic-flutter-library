@@ -53,7 +53,7 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
                   widget.labelText as String,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Palette.hlPrimaryColor,
                       fontWeight: FontWeight.bold),
                 ),
@@ -86,7 +86,10 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
     widget.editingController.isValid = true;
     widget.editingController.text = value;
 
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
+
     if (widget.onChanged != null) {
       widget.onChanged!(value);
     }
