@@ -13,3 +13,4 @@ export 'src/app/widgets/core/my-text-field-link.widget.dart';
 export 'src/app/widgets/core/my-text-field.widget.dart';
 export 'src/app/widgets/core/my-tile-card.widget.dart';
 export 'src/app/widgets/core/my-time.widget.dart';
+export 'src/app/widgets/core/my-circle-avatar.widget.dart';
