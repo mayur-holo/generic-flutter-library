@@ -9,11 +9,15 @@ import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/utils/string.util.dart';
 
 class MyCircleAvatar extends StatefulWidget {
-  final String titleText;
+  final String? titleText;
+  final ImageProvider<Object>? backgroundImage;
+  final Color? backgroundColor;
 
   const MyCircleAvatar({
     Key? key,
-    required this.titleText,
+    this.titleText,
+    this.backgroundImage,
+    this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -24,8 +28,11 @@ class _MyCircleAvatarState extends State<MyCircleAvatar> {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      child: Text(StringUtils.getTextAvatar(widget.titleText)),
-      backgroundColor: Palette.hlPrimaryColor,
+      child: widget.titleText != null
+          ? Text(StringUtils.getTextAvatar(widget.titleText ?? ''))
+          : null,
+      backgroundColor: widget.backgroundColor ?? Palette.hlPrimaryColor,
+      backgroundImage: widget.backgroundImage,
     );
   }
 }
