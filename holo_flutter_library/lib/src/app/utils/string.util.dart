@@ -18,4 +18,19 @@ class StringUtils {
   static bool isImage(String mime) {
     return (mime == 'image/jpeg');
   }
+
+  static String getTextAvatar(String text) {
+    String textAvatar = '';
+    if (text.isNotEmpty) {
+      textAvatar = text[0].toUpperCase();
+    }
+    if (text.split(" ").length > 1 && text.split(" ")[1].isNotEmpty) {
+      textAvatar += text.split(" ")[1][0].toUpperCase();
+    } else {
+      if (text.length > 1) {
+        textAvatar += text[1].toUpperCase();
+      }
+    }
+    return textAvatar;
+  }
 }
