@@ -17,27 +17,27 @@ abstract class SignedDrawerWidgetsList extends CustomDrawerWidgetsList {
 
   @override
   SignedDrawerWidgetsList() {
-    this.fetchdata();
+    fetchData();
   }
 
-  fetchdata() async {
+  fetchData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     mobile = prefs.getString("mobile");
     email = prefs.getString("email");
     name = prefs.getString("name") as String;
   }
 
-  Future<Null> logoutUser(BuildContext _context) async {
+  Future<void> logoutUser(BuildContext _context) async {
     showDialog(
         context: _context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Logout"),
-            content: Text("Are you sure want to logout?"),
+            title: const Text("Logout"),
+            content: const Text("Are you sure want to logout?"),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text("No"),
+                child: const Text("No"),
               ),
               TextButton(
                 onPressed: () async {
@@ -46,13 +46,13 @@ abstract class SignedDrawerWidgetsList extends CustomDrawerWidgetsList {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return WelcomePage();
+                        return const WelcomePage();
                       },
                     ),
                     (route) => false,
                   );
                 },
-                child: Text("Yes"),
+                child: const Text("Yes"),
               )
             ],
           );
@@ -62,7 +62,7 @@ abstract class SignedDrawerWidgetsList extends CustomDrawerWidgetsList {
   @override
   Widget headerWidget(BuildContext context) {
     return FutureBuilder(
-        future: fetchdata(),
+        future: fetchData(),
         builder: (context, AsyncSnapshot<void> snapshot) {
           return GestureDetector(
             onTap: () async {},
@@ -73,7 +73,7 @@ abstract class SignedDrawerWidgetsList extends CustomDrawerWidgetsList {
                       ? ''
                       : mobile as String
                   : email as String),
-              currentAccountPicture: CircleAvatar(
+              currentAccountPicture: const CircleAvatar(
                 backgroundImage: AssetImage("assets/images/avatar.jpg"),
               ),
             ),
@@ -87,8 +87,8 @@ abstract class SignedDrawerWidgetsList extends CustomDrawerWidgetsList {
 
   Widget logoutWidget(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.logout),
-      title: Text("Logout"),
+      leading: const Icon(Icons.logout),
+      title: const Text("Logout"),
       onTap: () => logoutUser(context),
     );
   }

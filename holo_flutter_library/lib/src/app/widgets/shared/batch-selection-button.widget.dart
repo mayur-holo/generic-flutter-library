@@ -18,7 +18,7 @@ class BatchSelectionButton extends StatelessWidget {
     return MaterialButton(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30),
-        side: BorderSide(color: Colors.black54),
+        side: const BorderSide(color: Colors.black54),
       ),
       elevation: isSelected ? 2 : 0,
       color: isSelected ? Palette.hlPrimaryLightColor : Colors.white,

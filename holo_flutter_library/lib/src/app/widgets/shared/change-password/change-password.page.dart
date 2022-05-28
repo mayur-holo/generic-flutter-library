@@ -10,6 +10,6 @@ class ChangePasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Body(), drawer: MenuBar());
+    return Scaffold(body: const Body(), drawer: MenuBar());
   }
 }

@@ -13,7 +13,11 @@ class ContactUs extends StatelessWidget {
   final List<int> contactNos;
   final List<String> emailIds;
 
-  ContactUs(this.contactNos, this.emailIds);
+  const ContactUs(
+    this.contactNos,
+    this.emailIds, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,6 @@ class ContactUs extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: size.height * 0.05),
-              // buildSvgPicture(size),
               SizedBox(height: size.height * 0.05),
               buildAboutUsText(),
             ],
@@ -37,20 +40,12 @@ class ContactUs extends StatelessWidget {
 
   Text buildAboutUsText() {
     return Text(
-      "You can write to us\n" +
-          "Email : " +
-          this.emailIds.join(', ') +
+      "You can write to us\n Email : " +
+          emailIds.join(', ') +
           "\n" +
           "Or contact us at\n" +
-          this.contactNos.join(', '),
-      style: TextStyle(fontWeight: FontWeight.bold),
+          contactNos.join(', '),
+      style: const TextStyle(fontWeight: FontWeight.bold),
     );
   }
-
-  // SvgPicture buildSvgPicture(Size size) {
-  //   return SvgPicture.asset(
-  //     "assets/icons/chat.svg",
-  //     height: size.height * 0.45,
-  //   );
-  // }
 }

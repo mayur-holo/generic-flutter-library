@@ -79,7 +79,7 @@ class _BodyState extends State<Body> {
       });
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      print(responseMessage['accessToken']);
+      debugPrint(responseMessage['accessToken']);
       prefs.setString('accessToken', responseMessage['accessToken'] ?? '');
       //TODO show an error as, try after some time if user id, access token, login type ,name is empty
       prefs.setString('userId', responseMessage['userId']);
@@ -112,7 +112,7 @@ class _BodyState extends State<Body> {
       });
 
       // Showing Alert Dialog with Response JSON Message.
-      new HLDialogBox(context).customShowDialog(responseMessage['message']);
+      HLDialogBox(context).customShowDialog(responseMessage['message']);
     }
   }
 
@@ -121,7 +121,7 @@ class _BodyState extends State<Body> {
     if (_emailMobileController.isValid && _passwordController.isValid) {
       return _loginAPICall();
     } else {
-      new HLDialogBox(context)
+      HLDialogBox(context)
           .customShowDialog("Please provide valid email/mobile and password");
     }
   }
@@ -147,7 +147,6 @@ class _BodyState extends State<Body> {
     var output = jsonDecode(response.body);
 
     if (output['code'] == 200) {
-      print("Send Forgot Request");
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -172,16 +171,16 @@ class _BodyState extends State<Body> {
   void initState() {
     super.initState();
 
-    prefillLogin();
+    preFillLogin();
   }
 
-  Future<void> prefillLogin() async {
+  Future<void> preFillLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? email = prefs.getString('email');
     setState(() {
       if (email != null) {
-        this._emailMobileController.text = email;
-        this._emailMobileController.isValid = true;
+        _emailMobileController.text = email;
+        _emailMobileController.isValid = true;
       }
     });
   }
@@ -218,7 +217,7 @@ class _BodyState extends State<Body> {
   }
 
   Text buildHeadText() {
-    return Text(
+    return const Text(
       "LOGIN",
       style: TextStyle(fontWeight: FontWeight.bold),
     );
@@ -226,7 +225,7 @@ class _BodyState extends State<Body> {
 
   Widget buildForgotPassword() {
     return GestureDetector(
-      child: Text(
+      child: const Text(
         "FORGOT PASSWORD",
         style: TextStyle(
           color: Palette.hlPrimaryColor,
@@ -241,7 +240,7 @@ class _BodyState extends State<Body> {
 
   GestureDetector buildChangePassword(BuildContext context) {
     return GestureDetector(
-      child: Text(
+      child: const Text(
         "CHANGE PASSWORD",
         style: TextStyle(
           color: Palette.hlPrimaryColor,
@@ -257,7 +256,7 @@ class _BodyState extends State<Body> {
 
   Widget buildFeedbackPage() {
     return GestureDetector(
-      child: Text(
+      child: const Text(
         "FEEDBACK PAGE",
         style: TextStyle(
           color: Palette.hlPrimaryColor,
@@ -286,7 +285,7 @@ class _BodyState extends State<Body> {
 
   Widget buildLoginWidget() {
     return _circularProgressIndicatorVisible
-        ? CircularProgressIndicator(
+        ? const CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Palette.hlPrimaryColor),
           )
         : MyButton(
@@ -316,15 +315,15 @@ class _BodyState extends State<Body> {
   //   return Row(
   //     mainAxisAlignment: MainAxisAlignment.center,
   //     children: <Widget>[
-  //       SocalIcon(
+  //       SocialIcon(
   //         iconSrc: "assets/icons/facebook.svg",
   //         press: () {},
   //       ),
-  //       SocalIcon(
+  //       SocialIcon(
   //         iconSrc: "assets/icons/twitter.svg",
   //         press: () {},
   //       ),
-  //       SocalIcon(
+  //       SocialIcon(
   //         iconSrc: "assets/icons/google-plus.svg",
   //         press: () {},
   //       ),

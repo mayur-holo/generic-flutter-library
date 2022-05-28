@@ -29,7 +29,7 @@ class MyButton extends StatelessWidget {
       width: size.width * 0.8,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
-        child: FlatButton(
+        child: MaterialButton(
           // disabledColor:
           //     disabled ? Palette.hlPrimaryLightColor : Palette.hlPrimaryColor,
           // disabledTextColor: disabled ? Palette.hlPrimaryColor : Colors.white,

@@ -94,28 +94,28 @@ class PasswordValidator extends NonEmptyStringValidator {
         RegExp(r"[^A-Za-z0-9 ]", multiLine: false); //()[]\;:"<>
 
     if (!bigCapRegex.hasMatch(value)) {
-      this.validationFailureText = "Password should consist 1 capital letter";
+      validationFailureText = "Password should consist 1 capital letter";
       return false;
     }
 
     if (!smallCapRegex.hasMatch(value)) {
-      this.validationFailureText = "Password should consist 1 small letter";
+      validationFailureText = "Password should consist 1 small letter";
       return false;
     }
 
     if (!numberRegex.hasMatch(value)) {
-      this.validationFailureText = "Password should consist 1 number";
+      validationFailureText = "Password should consist 1 number";
       return false;
     }
 
     if (!specialRegex.hasMatch(value)) {
-      this.validationFailureText =
+      validationFailureText =
           "Password should consist 1 special character .!#\$%&'*+-/=?^_`{|}~";
       return false;
     }
 
     if (!((value.length > 8) && (value.length < 253))) {
-      this.validationFailureText = "Password should be of length more than 8";
+      validationFailureText = "Password should be of length more than 8";
       return false;
     }
 

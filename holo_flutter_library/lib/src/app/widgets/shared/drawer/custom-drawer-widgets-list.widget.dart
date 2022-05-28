@@ -32,7 +32,7 @@ abstract class CustomDrawerWidgetsList {
         title: const Text("About us"),
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return AboutUs(Static.ABOUT_US_MESSAGE);
+            return AboutUs(Static.aboutUsMessage);
           }));
         });
   }
@@ -43,8 +43,8 @@ abstract class CustomDrawerWidgetsList {
         title: const Text("Contact us"),
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ContactUs(Static.CONTACT_US_MOBILE_TRAINER,
-                Static.CONTACT_US_EMAIL_TRAINER);
+            return ContactUs(
+                Static.contactUsMobileTrainer, Static.contactUsEmailTrainer);
           }));
         });
   }
@@ -55,7 +55,7 @@ abstract class CustomDrawerWidgetsList {
         title: const Text("Feedback"),
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return AboutUs(Static.ABOUT_US_MESSAGE);
+            return AboutUs(Static.aboutUsMessage);
           }));
         });
   }

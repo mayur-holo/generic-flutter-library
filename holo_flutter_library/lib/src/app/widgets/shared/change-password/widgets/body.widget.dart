@@ -23,7 +23,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Body extends StatefulWidget {
-  Body({Key? key}) : super(key: key);
+  const Body({Key? key}) : super(key: key);
 
   @override
   _BodyState createState() {
@@ -36,7 +36,7 @@ class _BodyState extends State<Body> {
   final MyEditingController _newPasswordController = MyEditingController();
   final MyEditingController _confirmPasswordController = MyEditingController();
 
-  LogOutApi apiCall = new LogOutApi();
+  LogOutApi apiCall = LogOutApi();
 
   // bool _formSubmitted = false;
   bool _circularProgressIndicatorVisible = false;

@@ -32,6 +32,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Body extends StatefulWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   _BodyState createState() => _BodyState();
 }
@@ -92,12 +94,13 @@ class _BodyState extends State<Body> {
       data["interestedCourses"] = _parentCoursesValues;
     } else if (_radioTypeInput == 'trainer') {
       String websiteLink = _websiteYoutubeController.text;
-      if (websiteLink == "")
+      if (websiteLink == "") {
         websiteLink = "hobbieslobbies.com";
-      else if (websiteLink.startsWith("http://"))
+      } else if (websiteLink.startsWith("http://")) {
         websiteLink = websiteLink.substring(7);
-      else if (websiteLink.startsWith("https://"))
+      } else if (websiteLink.startsWith("https://")) {
         websiteLink = websiteLink.substring(8);
+      }
 
       data["trainedTrainers"] = int.parse(_trainedStudentsController.text);
       data["currentTrainers"] = int.parse(_currentStudentsController.text);
@@ -152,19 +155,19 @@ class _BodyState extends State<Body> {
         _circularProgressIndicatorVisible = false;
       });
 
-      new HLDialogBox(context).customShowDialog(responseMessage['message']);
+      HLDialogBox(context).customShowDialog(responseMessage['message']);
     } else if (responseMessage['statusCode'] == 400) {
       setState(() {
         _circularProgressIndicatorVisible = false;
       });
 
-      new HLDialogBox(context).customShowDialog(responseMessage['message'][0]);
+      HLDialogBox(context).customShowDialog(responseMessage['message'][0]);
     } else {
       setState(() {
         _circularProgressIndicatorVisible = false;
       });
 
-      new HLDialogBox(context).customShowDialog("Internal Server Error");
+      HLDialogBox(context).customShowDialog("Internal Server Error");
     }
   }
 
@@ -225,7 +228,7 @@ class _BodyState extends State<Body> {
   }
 
   Text buildSignUpText() {
-    return Text(
+    return const Text(
       "SIGNUP",
       style: TextStyle(fontWeight: FontWeight.bold),
     );
@@ -289,7 +292,7 @@ class _BodyState extends State<Body> {
               //   _radioTypeInput = value;
               // });
             }),
-        Text('Student'),
+        const Text('Student'),
         Radio(
             value: 'trainer',
             groupValue: _radioTypeInput,
@@ -299,7 +302,7 @@ class _BodyState extends State<Body> {
                 _radioTypeInput = value as String;
               });
             }),
-        Text('Trainer'),
+        const Text('Trainer'),
       ],
     );
   }
@@ -317,7 +320,7 @@ class _BodyState extends State<Body> {
                 _radioTypeLocation = value as String;
               });
             }),
-        Text('Use your current location'),
+        const Text('Use your current location'),
       ],
     );
   }
@@ -332,8 +335,8 @@ class _BodyState extends State<Body> {
         aspectRatio: 16 / 9,
         autoPlay: _enableAutoPlay,
         autoPlayCurve: Curves.fastOutSlowIn,
-        autoPlayInterval: Duration(milliseconds: 200),
-        autoPlayAnimationDuration: Duration(milliseconds: 500),
+        autoPlayInterval: const Duration(milliseconds: 200),
+        autoPlayAnimationDuration: const Duration(milliseconds: 500),
         viewportFraction: 0.8,
         onPageChanged: (index, reason) {
           _enableAutoPlay = false;
@@ -387,7 +390,7 @@ class _BodyState extends State<Body> {
       default:
     }
 
-    controllers.forEach((eachController) {
+    for (var eachController in controllers) {
       if (eachController == _websiteYoutubeController) {
         if (!eachController.isValid &&
             eachController.validationErrorMessage.isNotEmpty) {
@@ -403,7 +406,7 @@ class _BodyState extends State<Body> {
           validation = eachController.validationErrorMessage;
         }
       }
-    });
+    }
 
     _signupEnabled = true;
 
@@ -411,7 +414,7 @@ class _BodyState extends State<Body> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(validation),
-          duration: Duration(minutes: 2),
+          duration: const Duration(minutes: 2),
           action: SnackBarAction(
             label: 'Dismiss',
             textColor: Colors.yellow,
@@ -432,8 +435,8 @@ class _BodyState extends State<Body> {
             return Scaffold(
               appBar: AppBar(),
               body: Center(
-                child: RaisedButton(
-                  child: Text('Push'),
+                child: MaterialButton(
+                  child: const Text('Push'),
                   onPressed: () {
                     if (prefs.getString("accessToken") != null) {
                       // Navigator.push(
@@ -455,7 +458,7 @@ class _BodyState extends State<Body> {
 
   Widget buildSignUpWidget(BuildContext context) {
     return _circularProgressIndicatorVisible
-        ? CircularProgressIndicator(
+        ? const CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Palette.hlPrimaryColor),
           )
         : MyButton(
@@ -485,15 +488,15 @@ class _BodyState extends State<Body> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        SocalIcon(
+        SocialIcon(
           iconSrc: "assets/icons/facebook.svg",
           press: () {},
         ),
-        SocalIcon(
+        SocialIcon(
           iconSrc: "assets/icons/twitter.svg",
           press: () {},
         ),
-        SocalIcon(
+        SocialIcon(
           iconSrc: "assets/icons/google-plus.svg",
           press: () {},
         ),
@@ -549,10 +552,10 @@ class _BodyState extends State<Body> {
 
   buildInterestedCoursesField() {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: MyMultiSelectFormField(
         autovalidate: false,
-        title: Text('Interested Courses'),
+        title: const Text('Interested Courses'),
         validator: (value) {
           if (value == null || value.length == 0) {
             return 'Please select courses which you like';
@@ -564,7 +567,7 @@ class _BodyState extends State<Body> {
         valueField: 'value',
         okButtonLabel: 'OK',
         cancelButtonLabel: 'CANCEL',
-        hintWidget: Text('Please select courses which you like'),
+        hintWidget: const Text('Please select courses which you like'),
         initialValue: _myActivities,
         onSaved: (value) {
           if (value == null) return;
@@ -621,7 +624,7 @@ class _BodyState extends State<Body> {
 
   buildGenderDropdownField() {
     return MyDropdownField(
-      {'Male': 'male', 'Female': 'female', 'Others': 'others'},
+      const {'Male': 'male', 'Female': 'female', 'Others': 'others'},
       _genderController,
       hintText: 'Gender',
       icon: Icons.add_circle_outlined,

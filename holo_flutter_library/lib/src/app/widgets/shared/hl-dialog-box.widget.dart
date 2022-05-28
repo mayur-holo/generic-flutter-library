@@ -18,13 +18,13 @@ class HLDialogBox {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: new Text(paramMessage),
+          title: Text(paramMessage),
           actions: <Widget>[
-            FlatButton(
-              child: new Text("OK"),
+            MaterialButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
+              child: const Text("OK"),
             ),
           ],
         );

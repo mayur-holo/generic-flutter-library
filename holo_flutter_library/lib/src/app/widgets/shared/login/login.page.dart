@@ -6,11 +6,13 @@ import 'widgets/login-body.widget.dart';
 
 // ignore: must_be_immutable
 class LoginPage extends StatelessWidget {
-  LogOutApi apiCall = new LogOutApi();
+  LogOutApi apiCall = LogOutApi();
+
+  LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Body(),
     );
   }
@@ -20,8 +22,5 @@ class LoginPage extends StatelessWidget {
     apiCall.logout(sharedPreferences.getString('userId') as String,
         sharedPreferences.getString('accessToken') as String);
     sharedPreferences.clear();
-    // Navigator.of(context).pushAndRemoveUntil(
-    //     MaterialPageRoute(builder: (BuildContext context) => LoginPage()),
-    //     (Route<dynamic> route) => false);
   }
 }

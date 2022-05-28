@@ -6,6 +6,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/utils/string.util.dart';
 
 enum Flavor { dev, qa, preProd, demo, prod }
@@ -37,7 +38,7 @@ class FlavorConfig {
 
   factory FlavorConfig(
       {required Flavor flavor,
-      Color color: Colors.blue,
+      Color color = Palette.hlPrimaryColor,
       required FlavorValues values}) {
     _instance = FlavorConfig._internal(
         flavor, StringUtils.enumName(flavor.toString()), color, values);

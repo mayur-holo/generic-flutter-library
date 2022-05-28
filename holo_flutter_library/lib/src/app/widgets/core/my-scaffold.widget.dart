@@ -65,7 +65,7 @@ class _MyScaffoldState extends State<MyScaffold> {
         elevation: 10,
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             iconSize: 30,
             color: Colors.white,
             onPressed: () {},

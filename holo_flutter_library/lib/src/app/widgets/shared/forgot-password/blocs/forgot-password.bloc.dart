@@ -20,7 +20,7 @@ _forgotPassword() async {
 
   var output = jsonDecode(response.body);
   if (output['code'] == 200) {
-    print("Send Forgot Request");
+    debugPrint("Send Forgot Request");
 
     ScaffoldMessenger.of(output).showSnackBar(
       SnackBar(

@@ -1,10 +1,11 @@
+import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/change-password/blocs/change-password.bloc.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/login/login.page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Body extends StatefulWidget {
-  Body({Key? key}) : super(key: key);
+  const Body({Key? key}) : super(key: key);
 
   @override
   MyHomePage createState() {
@@ -13,11 +14,11 @@ class Body extends StatefulWidget {
 }
 
 class MyHomePage extends State<Body> {
-  LogOutApi apiCall = new LogOutApi();
+  LogOutApi apiCall = LogOutApi();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("demo")),
+      appBar: AppBar(title: const Text("demo")),
       // drawer: CustomDrawer(),
       drawer: Drawer(
         child: ListView(
@@ -25,7 +26,7 @@ class MyHomePage extends State<Body> {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Palette.hlPrimaryColor,
               ),
               child: Text('Drawer Header'),
             ),
@@ -42,7 +43,7 @@ class MyHomePage extends State<Body> {
         sharedPreferences.getString('accessToken') as String);
     sharedPreferences.clear();
     if (sharedPreferences.getString('accessToken') == null) {
-      print('logout successfull');
+      debugPrint('logged out successfully');
     }
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (BuildContext context) => LoginPage()),

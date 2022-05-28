@@ -18,7 +18,7 @@ class UnsignedDrawerWidgetsList extends CustomDrawerWidgetsList {
           MaterialPageRoute(builder: (context) => LoginPage()),
         );
       },
-      child: DrawerHeader(
+      child: const DrawerHeader(
         margin: EdgeInsets.only(bottom: 5.0),
         padding: EdgeInsets.symmetric(horizontal: 100, vertical: 40),
         child: Text(

@@ -9,9 +9,11 @@ import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/widgets/shared/welcome/widgets/body.widget.dart';
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Body(),
     );
   }

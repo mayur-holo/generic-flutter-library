@@ -11,12 +11,11 @@ import 'package:holo_flutter_library/src/app/widgets/core/my-button.widget.dart'
 
 import 'package:holo_flutter_library/src/app/widgets/core/my-text-field.widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'background.widget.dart';
 
 class Body extends StatefulWidget {
-  Body({Key? key}) : super(key: key);
+  const Body({Key? key}) : super(key: key);
 
   @override
   _BodyState createState() {
@@ -85,24 +84,10 @@ class _BodyState extends State<Body> {
     return MyButton(
       text: "Resend ",
       onPressed: () {
-        setState(() {
-          // isvisible = true;
-        });
+        setState(() {});
       },
     );
   }
-
-  // HLTextField buildMessageField() {
-  //   return HLTextField(
-  //     TextFieldType.Description,
-  //     labelText: "Messages",
-  //     hintText:
-  //         "New password generation link has been sent to you please open the link from mobile/email.",
-  //     inputFieldController: null,
-  //     textInputAction: TextInputAction.done,
-  //     maxLines: 4,
-  //   );
-  // }
 
   MyButton buildSubmitWidget() {
     return MyButton(

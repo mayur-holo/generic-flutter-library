@@ -6,7 +6,7 @@
  */
 
 class Url {
-  static const String LOGIN_URL = '';
+  static const String loginUrl = '';
 
   static Map<String, String> takeAndSkipQueryParams(
       {int take = 0, int skip = 0}) {

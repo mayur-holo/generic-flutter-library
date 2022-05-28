@@ -20,6 +20,8 @@ import 'package:holo_flutter_library/src/app/widgets/shared/sign-up/widgets/back
 import 'package:holo_flutter_library/src/config/flavor.config.dart';
 
 class Body extends StatefulWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   _BodyState createState() => _BodyState();
 }
@@ -56,14 +58,14 @@ class _BodyState extends State<Body> {
                       actions: [
                         ElevatedButton(
                           onPressed: () async {
-                            const url = Static.APP_URL;
+                            const url = Static.appUrl;
                             if (await canLaunch(url)) {
                               await launch(url);
                             } else {
                               throw 'Could not launch $url';
                             }
                           },
-                          child: Text("Update"),
+                          child: const Text("Update"),
                         ),
                       ],
                     ),

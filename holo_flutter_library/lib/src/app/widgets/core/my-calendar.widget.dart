@@ -60,7 +60,7 @@ class DateOfBirthCalendar extends MyCalendar {
   DateOfBirthCalendar({
     Key? key,
     IconData? icon,
-    this.hintText = Static.DOB_HINT_MESSAGE,
+    this.hintText = Static.dobHintMessage,
     this.labelText,
     this.textController,
     this.onTapFunction,

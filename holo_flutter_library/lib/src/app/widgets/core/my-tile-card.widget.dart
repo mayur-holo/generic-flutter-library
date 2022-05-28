@@ -23,10 +23,10 @@ class MyTileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 1.0,
-        margin: new EdgeInsets.all(8.0),
+        margin: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(color: Colors.purple[50]),
-          child: new InkWell(
+          child: InkWell(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -37,11 +37,11 @@ class MyTileCard extends StatelessWidget {
                     height: 72,
                   ),
                 ),
-                SizedBox(height: 20.0),
-                new Center(
-                  child: new Text(
+                const SizedBox(height: 20.0),
+                Center(
+                  child: Text(
                     title,
-                    style: new TextStyle(
+                    style:  TextStyle(
                       fontSize: 18.0,
                       color: Colors.purple[400],
                     ),

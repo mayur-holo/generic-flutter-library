@@ -178,7 +178,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 widget.labelText,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Palette.hlPrimaryColor, fontWeight: FontWeight.bold),
               ),
             ),
