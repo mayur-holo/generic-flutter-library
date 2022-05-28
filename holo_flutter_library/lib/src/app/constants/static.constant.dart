@@ -16,7 +16,7 @@ class Static {
 
   /// About Us
   static const String aboutUsMessage =
-      'We are building a environment \nwhere people can connect together and \nlearn something new';
+      'We are building a environment, \nwhere people can connect together and \nlearn something new';
 
   /// App URL
   static const String appUrl =
