@@ -12,12 +12,14 @@ class MyCircleAvatar extends StatefulWidget {
   final String? titleText;
   final ImageProvider<Object>? backgroundImage;
   final Color? backgroundColor;
+  final double? radius;
 
   const MyCircleAvatar({
     Key? key,
     this.titleText,
     this.backgroundImage,
     this.backgroundColor,
+    this.radius,
   }) : super(key: key);
 
   @override
@@ -33,6 +35,7 @@ class _MyCircleAvatarState extends State<MyCircleAvatar> {
           : null,
       backgroundColor: widget.backgroundColor ?? Palette.hlPrimaryColor,
       backgroundImage: widget.backgroundImage,
+      radius: widget.radius,
     );
   }
 }
