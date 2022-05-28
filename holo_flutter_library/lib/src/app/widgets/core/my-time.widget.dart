@@ -25,22 +25,40 @@ class _MyTimePickerWidgetState extends State<MyTimePickerWidget> {
   @override
   Widget build(BuildContext context) {
     return MyTextFieldContainer(
-      child: TextFormField(
-        readOnly: true,
-        onTap: () {
-          _onTap(context);
-        },
-        cursorColor: Palette.hlPrimaryColor,
-        controller: widget.textController,
-        decoration: InputDecoration(
-          icon: const Icon(
-            Icons.timelapse_rounded,
-            color: Palette.hlPrimaryColor,
+      child: Column(
+        children: [
+          if (widget.labelText != null)
+            Padding(
+              padding: const EdgeInsets.only(left: 40.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  widget.labelText as String,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      color: Palette.hlPrimaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          TextFormField(
+            readOnly: true,
+            onTap: () {
+              _onTap(context);
+            },
+            cursorColor: Palette.hlPrimaryColor,
+            controller: widget.textController,
+            decoration: InputDecoration(
+              icon: const Icon(
+                Icons.timelapse_rounded,
+                color: Palette.hlPrimaryColor,
+              ),
+              hintText: widget.hintText,
+              border: InputBorder.none,
+            ),
           ),
-          hintText: widget.hintText,
-          labelText: widget.labelText,
-          border: InputBorder.none,
-        ),
+        ],
       ),
     );
   }
