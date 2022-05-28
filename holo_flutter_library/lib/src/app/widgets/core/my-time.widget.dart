@@ -5,12 +5,17 @@ import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-container.widget.dart';
 
 class MyTimePickerWidget extends StatefulWidget {
-  final String? hintText;
+  final String? hintText, labelText;
   final TextEditingController? textController;
   final Function()? onTapFunction;
-  const MyTimePickerWidget(
-      {Key? key, this.hintText, this.textController, this.onTapFunction})
-      : super(key: key);
+
+  const MyTimePickerWidget({
+    Key? key,
+    this.hintText,
+    this.labelText,
+    this.textController,
+    this.onTapFunction,
+  }) : super(key: key);
 
   @override
   _MyTimePickerWidgetState createState() => _MyTimePickerWidgetState();
@@ -33,6 +38,7 @@ class _MyTimePickerWidgetState extends State<MyTimePickerWidget> {
             color: Palette.hlPrimaryColor,
           ),
           hintText: widget.hintText,
+          labelText: widget.labelText,
           border: InputBorder.none,
         ),
       ),
