@@ -17,7 +17,7 @@ class MyDropdownField extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final MyEditingController editingController;
   final Map<String, dynamic> paramItems;
-  final dropDownValue;
+  final Object? dropDownValue;
   final bool editable;
   final MyEditingController? inputFieldController;
 
@@ -70,12 +70,14 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
               hintText: widget.hintText,
               border: InputBorder.none,
             ),
-            items: widget.paramItems.entries
-                .map((entry) => DropdownMenuItem<String>(
-                      value: entry.value,
-                      child: Text(entry.key),
-                    ))
-                .toList(),
+            items: widget.editable
+                ? widget.paramItems.entries
+                    .map((entry) => DropdownMenuItem<String>(
+                          value: entry.value,
+                          child: Text(entry.key),
+                        ))
+                    .toList()
+                : null,
           ),
         ],
       ),
