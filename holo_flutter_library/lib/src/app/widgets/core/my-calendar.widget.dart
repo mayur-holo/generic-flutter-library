@@ -66,6 +66,7 @@ class DateOfBirthCalendar extends MyCalendar {
     this.onTapFunction,
     DateTime? firstDateTime,
     DateTime? lastDateTime,
+    DateTime? startDateTime,
     this.editable = true,
   }) : super(
             key: key,
@@ -74,6 +75,7 @@ class DateOfBirthCalendar extends MyCalendar {
             labelText: labelText,
             textController: textController,
             onTapFunction: onTapFunction,
+            startDateTime: startDateTime,
             firstDateTime: firstDateTime = defaultFirstDateTime,
             lastDateTime: lastDateTime = defaultLastDateTime);
 
