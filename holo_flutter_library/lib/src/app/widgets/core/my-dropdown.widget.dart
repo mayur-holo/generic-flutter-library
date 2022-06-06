@@ -62,6 +62,12 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
           DropdownButtonFormField(
             onChanged: _onChanged,
             value: widget.dropDownValue,
+            disabledHint: (widget.dropDownValue != null
+                ? Text(widget.paramItems.entries
+                    .firstWhere(
+                        (element) => widget.dropDownValue == element.value)
+                    .key)
+                : Text("")),
             decoration: InputDecoration(
               icon: Icon(
                 widget.icon,
