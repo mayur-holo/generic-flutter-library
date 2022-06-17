@@ -62,12 +62,14 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
           DropdownButtonFormField(
             onChanged: _onChanged,
             value: widget.dropDownValue,
-            disabledHint: (widget.dropDownValue != null
-                ? Text(widget.paramItems.entries
-                    .firstWhere(
-                        (element) => widget.dropDownValue == element.value)
-                    .key)
-                : Text("")),
+            // removing disable hint for first where issue
+            // disabledHint: (widget.dropDownValue != null
+            //     ? Text(widget.paramItems.entries
+            //         .firstWhere(
+            //             (element) => widget.dropDownValue == element.value,
+            //             orElse: () => widget.paramItems[0])
+            //         .key)
+            //     : const Text("")),
             decoration: InputDecoration(
               icon: Icon(
                 widget.icon,
