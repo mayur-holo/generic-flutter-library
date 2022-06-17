@@ -67,7 +67,7 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
               ),
             ),
           DropdownButtonFormField(
-            onChanged: widget.editable ? null : _onChanged,
+            onChanged: widget.editable ? _onChanged : null,
             value: dropDownValue,
             // commented for issue with first where
             // disabledHint: (widget.dropDownValue != null
