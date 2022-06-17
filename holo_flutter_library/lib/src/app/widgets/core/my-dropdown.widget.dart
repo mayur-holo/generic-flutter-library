@@ -41,6 +41,13 @@ class MyDropdownField extends StatefulWidget {
 class _MyDropdownFieldState extends State<MyDropdownField> {
   @override
   Widget build(BuildContext context) {
+    Object? dropDownValue;
+    if (!widget.paramItems.containsValue(widget.dropDownValue)) {
+      dropDownValue = widget.paramItems.entries.first.value;
+    } else {
+      dropDownValue = widget.dropDownValue;
+    }
+
     return MyDropdownFieldContainer(
       child: Column(
         children: [
@@ -61,15 +68,13 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
             ),
           DropdownButtonFormField(
             onChanged: _onChanged,
-            value: widget.dropDownValue,
-            // removing disable hint for first where issue
-            // disabledHint: (widget.dropDownValue != null
-            //     ? Text(widget.paramItems.entries
-            //         .firstWhere(
-            //             (element) => widget.dropDownValue == element.value,
-            //             orElse: () => widget.paramItems[0])
-            //         .key)
-            //     : const Text("")),
+            value: dropDownValue,
+            disabledHint: (widget.dropDownValue != null
+                ? Text(widget.paramItems.entries
+                    .firstWhere(
+                        (element) => widget.dropDownValue == element.value)
+                    .key)
+                : const Text("")),
             decoration: InputDecoration(
               icon: Icon(
                 widget.icon,
