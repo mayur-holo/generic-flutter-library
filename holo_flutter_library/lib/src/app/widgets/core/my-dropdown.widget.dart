@@ -67,7 +67,7 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
               ),
             ),
           DropdownButtonFormField(
-            onChanged: _onChanged,
+            onChanged: widget.editable ? null : _onChanged,
             value: dropDownValue,
             // commented for issue with first where
             // disabledHint: (widget.dropDownValue != null
@@ -84,14 +84,12 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
               hintText: widget.hintText,
               border: InputBorder.none,
             ),
-            items: widget.editable
-                ? widget.paramItems.entries
-                    .map((entry) => DropdownMenuItem<String>(
-                          value: entry.value,
-                          child: Text(entry.key),
-                        ))
-                    .toList()
-                : null,
+            items: widget.paramItems.entries
+                .map((entry) => DropdownMenuItem<String>(
+                      value: entry.value,
+                      child: Text(entry.key),
+                    ))
+                .toList(),
           ),
         ],
       ),
