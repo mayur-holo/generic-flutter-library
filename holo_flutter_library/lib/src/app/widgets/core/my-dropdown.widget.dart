@@ -43,7 +43,9 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
   Widget build(BuildContext context) {
     Object? dropDownValue;
     if (!widget.paramItems.containsValue(widget.dropDownValue)) {
-      dropDownValue = widget.paramItems.entries.first.value;
+      if (widget.paramItems.isNotEmpty) {
+        dropDownValue = widget.paramItems.entries.first.value;
+      }
     } else {
       dropDownValue = widget.dropDownValue;
     }
@@ -84,12 +86,19 @@ class _MyDropdownFieldState extends State<MyDropdownField> {
               hintText: widget.hintText,
               border: InputBorder.none,
             ),
-            items: widget.paramItems.entries
-                .map((entry) => DropdownMenuItem<String>(
-                      value: entry.value,
-                      child: Text(entry.key),
-                    ))
-                .toList(),
+            items: widget.paramItems.isEmpty
+                ? [
+                    const DropdownMenuItem<String>(
+                      value: "no_data",
+                      child: Text("No Data"),
+                    )
+                  ]
+                : widget.paramItems.entries
+                    .map((entry) => DropdownMenuItem<String>(
+                          value: entry.value,
+                          child: Text(entry.key),
+                        ))
+                    .toList(),
           ),
         ],
       ),
