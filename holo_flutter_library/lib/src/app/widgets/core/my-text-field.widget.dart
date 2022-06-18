@@ -167,27 +167,31 @@ class _MyTextFieldState extends State<MyTextField> {
     return MyTextFieldContainer(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 40.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                widget.labelText,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    color: Palette.hlPrimaryColor, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ),
+          widget.labelText.isNotEmpty
+              ? Padding(
+                  padding: const EdgeInsets.only(left: 40.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      widget.labelText,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          color: Palette.hlPrimaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                )
+              : const SizedBox(),
           TextField(
             obscureText:
                 widget.textFieldType == MyTextFieldType.Password ? true : false,
             onChanged: _onChanged,
             autocorrect: true,
             readOnly: !widget.editable,
-            style:
-                TextStyle(color: widget.editable ? Colors.black : Colors.grey),
+            style: TextStyle(
+              color: widget.editable ? Colors.black : Colors.grey,
+            ),
             cursorColor: Palette.hlPrimaryColor,
             controller: widget.inputFieldController,
             decoration: InputDecoration(

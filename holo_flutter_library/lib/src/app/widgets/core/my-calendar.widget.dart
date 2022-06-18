@@ -30,7 +30,7 @@ class MyCalendar extends StatefulWidget {
     Key? key,
     this.icon = Icons.calendar_today,
     this.hintText,
-    this.labelText,
+    this.labelText = '',
     this.textController,
     this.onTapFunction,
     this.startDateTime,
@@ -89,21 +89,22 @@ class _MyCalendarState extends State<MyCalendar> {
     return MyTextFieldContainer(
       child: Column(
         children: [
-          if (widget.labelText != null)
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  widget.labelText as String,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                      color: Palette.hlPrimaryColor,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+          widget.labelText!.isNotEmpty
+              ? Padding(
+                  padding: const EdgeInsets.only(left: 40.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      widget.labelText as String,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          color: Palette.hlPrimaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                )
+              : const SizedBox(),
           TextFormField(
             readOnly: !widget.editable!,
             onTap: () {
