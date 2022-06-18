@@ -184,7 +184,10 @@ class _MyTextFieldState extends State<MyTextField> {
                 )
               : const SizedBox(),
           SizedBox(
-            height: 25.0,
+            height:
+                widget.errorText.isNotEmpty || _textFieldErrorText.isNotEmpty
+                    ? 40.0
+                    : 25.0,
             child: TextField(
               obscureText: widget.textFieldType == MyTextFieldType.Password
                   ? true

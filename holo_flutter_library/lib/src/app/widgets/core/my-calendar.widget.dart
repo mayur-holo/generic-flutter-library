@@ -7,13 +7,11 @@
 import 'package:flutter/material.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/constants/static.constant.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/my-editing-controller.dart';
-import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-container.widget.dart';
-
-import 'package:intl/intl.dart';
-
 import 'package:holo_flutter_library/src/app/utils/date.util.dart'
     as my_date_utils;
+import 'package:holo_flutter_library/src/app/widgets/core/my-editing-controller.dart';
+import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-container.widget.dart';
+import 'package:intl/intl.dart';
 
 class MyCalendar extends StatefulWidget {
   final IconData? icon;
@@ -61,7 +59,7 @@ class DateOfBirthCalendar extends MyCalendar {
     Key? key,
     IconData? icon,
     this.hintText = Static.dobHintMessage,
-    this.labelText,
+    this.labelText = '',
     this.textController,
     this.onTapFunction,
     DateTime? firstDateTime,
@@ -87,27 +85,27 @@ class _MyCalendarState extends State<MyCalendar> {
   @override
   Widget build(BuildContext context) {
     return MyTextFieldContainer(
-      child: SizedBox(
-        height: 25.0,
-        child: Column(
-          children: [
-            widget.labelText!.isNotEmpty
-                ? Padding(
-                    padding: const EdgeInsets.only(left: 40.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        widget.labelText as String,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            color: Palette.hlPrimaryColor,
-                            fontWeight: FontWeight.bold),
-                      ),
+      child: Column(
+        children: [
+          widget.labelText!.isNotEmpty
+              ? Padding(
+                  padding: const EdgeInsets.only(left: 40.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      widget.labelText as String,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                          color: Palette.hlPrimaryColor,
+                          fontWeight: FontWeight.bold),
                     ),
-                  )
-                : const SizedBox(),
-            TextFormField(
+                  ),
+                )
+              : const SizedBox(),
+          SizedBox(
+            height: 25.0,
+            child: TextFormField(
               readOnly: !widget.editable!,
               onTap: () {
                 if (widget.editable!) {
@@ -128,8 +126,8 @@ class _MyCalendarState extends State<MyCalendar> {
                 border: InputBorder.none,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
