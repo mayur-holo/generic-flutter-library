@@ -104,7 +104,7 @@ class _MyCalendarState extends State<MyCalendar> {
                 )
               : const SizedBox(),
           SizedBox(
-            height: 28.0,
+            height: 30.0,
             child: TextFormField(
               readOnly: !widget.editable!,
               onTap: () {
