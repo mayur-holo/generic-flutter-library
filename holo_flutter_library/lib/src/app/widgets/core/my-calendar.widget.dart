@@ -87,45 +87,49 @@ class _MyCalendarState extends State<MyCalendar> {
   @override
   Widget build(BuildContext context) {
     return MyTextFieldContainer(
-      child: Column(
-        children: [
-          widget.labelText!.isNotEmpty
-              ? Padding(
-                  padding: const EdgeInsets.only(left: 40.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      widget.labelText as String,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          color: Palette.hlPrimaryColor,
-                          fontWeight: FontWeight.bold),
+      child: SizedBox(
+        height: 25.0,
+        child: Column(
+          children: [
+            widget.labelText!.isNotEmpty
+                ? Padding(
+                    padding: const EdgeInsets.only(left: 40.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        widget.labelText as String,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            color: Palette.hlPrimaryColor,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                )
-              : const SizedBox(),
-          TextFormField(
-            readOnly: !widget.editable!,
-            onTap: () {
-              if (widget.editable!) {
-                _onTap(context);
-              }
-            },
-            style:
-                TextStyle(color: widget.editable! ? Colors.black : Colors.grey),
-            cursorColor: Palette.hlPrimaryColor,
-            controller: widget.textController,
-            decoration: InputDecoration(
-              icon: Icon(
-                widget.icon,
-                color: Palette.hlPrimaryColor,
+                  )
+                : const SizedBox(),
+            TextFormField(
+              readOnly: !widget.editable!,
+              onTap: () {
+                if (widget.editable!) {
+                  _onTap(context);
+                }
+              },
+              style: TextStyle(
+                color: widget.editable! ? Colors.black : Colors.grey,
               ),
-              hintText: widget.hintText,
-              border: InputBorder.none,
+              cursorColor: Palette.hlPrimaryColor,
+              controller: widget.textController,
+              decoration: InputDecoration(
+                icon: Icon(
+                  widget.icon,
+                  color: Palette.hlPrimaryColor,
+                ),
+                hintText: widget.hintText,
+                border: InputBorder.none,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

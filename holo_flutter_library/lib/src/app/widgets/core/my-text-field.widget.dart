@@ -183,34 +183,38 @@ class _MyTextFieldState extends State<MyTextField> {
                   ),
                 )
               : const SizedBox(),
-          TextField(
-            obscureText:
-                widget.textFieldType == MyTextFieldType.Password ? true : false,
-            onChanged: _onChanged,
-            autocorrect: true,
-            readOnly: !widget.editable,
-            style: TextStyle(
-              color: widget.editable ? Colors.black : Colors.grey,
-            ),
-            cursorColor: Palette.hlPrimaryColor,
-            controller: widget.inputFieldController,
-            decoration: InputDecoration(
-              icon: Icon(
-                icon(),
-                color: Palette.hlPrimaryColor,
+          SizedBox(
+            height: 25.0,
+            child: TextField(
+              obscureText: widget.textFieldType == MyTextFieldType.Password
+                  ? true
+                  : false,
+              onChanged: _onChanged,
+              autocorrect: true,
+              readOnly: !widget.editable,
+              style: TextStyle(
+                color: widget.editable ? Colors.black : Colors.grey,
               ),
-              hintText: hintText(),
-              border: InputBorder.none,
-              errorText: (widget.errorText.isEmpty)
-                  ? _textFieldErrorText.isEmpty
-                      ? null
-                      : _textFieldErrorText
-                  : widget.errorText,
+              cursorColor: Palette.hlPrimaryColor,
+              controller: widget.inputFieldController,
+              decoration: InputDecoration(
+                icon: Icon(
+                  icon(),
+                  color: Palette.hlPrimaryColor,
+                ),
+                hintText: hintText(),
+                border: InputBorder.none,
+                errorText: (widget.errorText.isEmpty)
+                    ? _textFieldErrorText.isEmpty
+                        ? null
+                        : _textFieldErrorText
+                    : widget.errorText,
+              ),
+              keyboardType: keyboardType(),
+              textInputAction: textInputAction(),
+              minLines: widget.minLines,
+              maxLines: widget.maxLines,
             ),
-            keyboardType: keyboardType(),
-            textInputAction: textInputAction(),
-            minLines: widget.minLines,
-            maxLines: widget.maxLines,
           ),
         ],
       ),
