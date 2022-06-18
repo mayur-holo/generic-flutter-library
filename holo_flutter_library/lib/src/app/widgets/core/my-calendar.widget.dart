@@ -105,11 +105,14 @@ class _MyCalendarState extends State<MyCalendar> {
               ),
             ),
           TextFormField(
-            readOnly: true,
+            readOnly: !widget.editable!,
             onTap: () {
-              _onTap(context);
+              if (widget.editable!) {
+                _onTap(context);
+              }
             },
-            enabled: widget.editable,
+            style:
+                TextStyle(color: widget.editable! ? Colors.black : Colors.grey),
             cursorColor: Palette.hlPrimaryColor,
             controller: widget.textController,
             decoration: InputDecoration(

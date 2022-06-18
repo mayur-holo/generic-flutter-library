@@ -5,12 +5,9 @@
  * Copyright (c) 2021 Hobbies-Lobbies Pvt Ltd.
  */
 import 'package:flutter/material.dart';
+import 'package:holo_flutter_library/my_widget.lib.dart';
 import 'package:holo_flutter_library/src/app/constants/palette.constant.dart';
 import 'package:holo_flutter_library/src/app/utils/validators/validators.dart';
-
-import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-container.widget.dart';
-
-import 'my-editing-controller.dart';
 
 ///Others will not have any validation.
 enum MyTextFieldType {
@@ -187,6 +184,10 @@ class _MyTextFieldState extends State<MyTextField> {
             obscureText:
                 widget.textFieldType == MyTextFieldType.Password ? true : false,
             onChanged: _onChanged,
+            autocorrect: true,
+            readOnly: !widget.editable,
+            style:
+                TextStyle(color: widget.editable ? Colors.black : Colors.grey),
             cursorColor: Palette.hlPrimaryColor,
             controller: widget.inputFieldController,
             decoration: InputDecoration(
@@ -197,12 +198,13 @@ class _MyTextFieldState extends State<MyTextField> {
               hintText: hintText(),
               border: InputBorder.none,
               errorText: (widget.errorText.isEmpty)
-                  ? _textFieldErrorText
+                  ? _textFieldErrorText.isEmpty
+                      ? null
+                      : _textFieldErrorText
                   : widget.errorText,
             ),
             keyboardType: keyboardType(),
             textInputAction: textInputAction(),
-            enabled: widget.editable,
             minLines: widget.minLines,
             maxLines: widget.maxLines,
           ),
