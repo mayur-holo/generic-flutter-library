@@ -7,7 +7,7 @@ import 'package:holo_flutter_library/src/app/widgets/core/my-text-field-containe
 class MyTimePickerWidget extends StatefulWidget {
   final String? hintText, labelText;
   final TextEditingController? textController;
-  final Function()? onTapFunction;
+  final Function? onTapFunction;
 
   const MyTimePickerWidget({
     Key? key,
@@ -80,6 +80,6 @@ class _MyTimePickerWidgetState extends State<MyTimePickerWidget> {
           my_date_utils.DateUtils.getClockDateTimeAsString(
               dateTime: DateTime.parse(widget.textController!.text));
     }
-    widget.onTapFunction!();
+    return widget.onTapFunction;
   }
 }
